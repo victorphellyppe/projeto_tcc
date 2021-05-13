@@ -1,5 +1,6 @@
 @import '../../colors.scss';
 
+
 .content-page{
   width: 100%;
   height: 100%;
@@ -8,7 +9,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+.content-logo{
+  padding: 15px;
+  display: flex;
+  justify-content: center;
 }
-.content-page figure img{
-  margin-left: 65px;
+.buttons {
+ padding: 10px; 
 }
+}
+// .content-page figure img{
+//   margin-left: 65px;
+// }

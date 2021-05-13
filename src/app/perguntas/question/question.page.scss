@@ -1,0 +1,84 @@
+@import '../../../colors.scss';
+
+.content-page{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient($background, $background-secondary);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    .time{
+        width: 54px;
+        height: 54px;
+        border-radius: 100%;
+        border: 5px solid  lighten($color: $box-color, $amount: 20%);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .question-box{
+        min-height: 100px;
+        //descolar o texto da pergunta.
+        // padding: {
+        //     left: 10px;
+        //     right: 10px;
+        // };
+        color:#ffff;
+        border-bottom: 1px solid #fff;
+        background: linear-gradient(to-botton-right, $box-color, $box-color-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;   
+    }
+    
+    .answers{
+        padding: {
+                left: 5px;
+                right: 5px;
+            };
+        .answer{
+            width: 100%;
+            background-color: #ffff;
+            border-radius: 4px;
+            margin: {
+                top:10px;
+                bottom:10px;
+            };
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            .number{
+                width: 30px;
+                height: 30px;
+                border-radius: 100%;
+                background-color: $background;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 10px;
+                color: #fff;
+                font-weight: bold;
+            }
+        }
+    }
+    .info{
+        display: flex;
+        margin-top: 20px;
+        justify-content: space-evenly;
+        //info  div{}
+        & > div{
+            background-color:red;
+            text-align: center;
+            padding: 5px 2px;
+            color: #fff;
+            flex-basis: 30%;
+            border-radius: 4px;
+            p {
+                margin: 0;
+                padding: 0;
+            }
+        }   
+    }
+
+
+}
