@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { QuestionPage } from '../perguntas/question/question.page';
+import { Question } from '../models/question';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,7 @@ import { QuestionPage } from '../perguntas/question/question.page';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  
   constructor(private router:Router) {   }
 
   navegarQuestao(){
