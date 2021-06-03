@@ -35,6 +35,7 @@ export class QuestionPage implements OnInit {
         ]
       },
     ];
+    
     curQuestion: Question;
     questionIndex: number = 0;
   ngOnInit():void{
