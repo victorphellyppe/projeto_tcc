@@ -7,10 +7,8 @@ const routes: Routes = [
   {path: 'register',loadChildren: () => import('./auth/register/register.module').then( m => m.RegisterPageModule)},
   {path: 'login',loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)},
   {path: 'question',loadChildren: () => import('./perguntas/question/question.module').then( m => m.QuestionPageModule)},
-  {
-    path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
-  },
+  {path: 'inicio',loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)},
+  {path: 'rank',loadChildren: () => import('./rank/rank.module').then( m => m.RankPageModule)}
 ];
 
 @NgModule({
