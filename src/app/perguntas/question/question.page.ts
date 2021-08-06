@@ -317,7 +317,6 @@ export class QuestionPage implements OnInit {
   }
 
   showToast() {
-    // this.nativeAudio.
     this.respostaCerta = this.toastCtrl.create({
       message: 'Aeeee, acertou.',
       duration: 1500

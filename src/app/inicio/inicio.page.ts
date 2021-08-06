@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
-
+  private slideOpts = {
+    initialSlide: 0,
+    speed: 400
+  };
   constructor() { }
 
   ngOnInit() {
