@@ -12,7 +12,7 @@ import { Keyboard } from '@ionic-native/keyboard/ngx';
 export class LoginPage implements OnInit {
   @ViewChild(IonSlides) slides: IonSlides;
   public wavesPosition: number = 0;
-  private wavesDifference: number = 100;
+  public wavesDifference: number = 100;
   public userLogin: User = {};
   public userRegister: User = {};
   private loading: any;
@@ -39,9 +39,26 @@ export class LoginPage implements OnInit {
   async login() {
     await this.presentLoading();
 
+    
     try {
       await this.authService.login(this.userLogin);
     } catch (error) {
+      let message: string;
+      //tratando os errors os erros de login
+      switch (error.code) {
+        case 'auth/email-already-in-use':
+          message = 'O email já está sendo usado';
+          break;
+
+        case 'auth/invalid-email':
+          message = 'E-mail inválido';
+          break;
+
+        case 'auth/weak-password':
+          message = "Sua senha deve ter pelo menos 6 caracteres ";
+          break;
+      }
+
       this.presentToast(error.message);
     } finally {
       this.loading.dismiss();
@@ -54,6 +71,22 @@ export class LoginPage implements OnInit {
     try {
       await this.authService.register(this.userRegister);
     } catch (error) {
+      let message: string;
+      //tratando os errors
+      switch (error.code) {
+        case 'auth/email-already-in-use':
+          message = 'O email já está sendo usado';
+          break;
+
+        case 'auth/invalid-email':
+          message = 'E-mail inválido';
+          break;
+
+        case 'auth/weak-password':
+          message = "Sua senha deve ter pelo menos 6 caracteres ";
+          break;
+      }
+
       this.presentToast(error.message);
     } finally {
       this.loading.dismiss();
@@ -61,7 +94,7 @@ export class LoginPage implements OnInit {
   }
 
   async presentLoading() {
-    this.loading = await this.loadingCtrl.create({ message: 'Aguarde...' });
+    this.loading = await this.loadingCtrl.create({ message: 'Por favor, aguarde...' });
     return this.loading.present();
   }
 
@@ -69,4 +102,9 @@ export class LoginPage implements OnInit {
     const toast = await this.toastCtrl.create({ message, duration: 2000 });
     toast.present();
   }
+
+  signOut(){
+    return this.authService.logout();
+  }
+
 }

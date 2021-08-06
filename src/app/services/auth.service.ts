@@ -11,19 +11,19 @@ export class AuthService {
 
 
   login(user:User){
-
+    return this.afa.signInWithEmailAndPassword(user.email,user.password);
   }
 
   register(user:User){
-
+    return this.afa.createUserWithEmailAndPassword(user.email,user.password);
   }
  
 
   logout(){
-
+    return this.afa.signOut();
   }
 
   getAuth(){
-
+    return this.afa;
   }
 }
