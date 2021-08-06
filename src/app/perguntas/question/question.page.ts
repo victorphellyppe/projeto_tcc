@@ -46,7 +46,7 @@ export class QuestionPage implements OnInit {
         ]
       },
       {
-        title: 'São consideradas pessoas com necessidades específicas, segundo o NAPNE do Instituto Federal de Alagoas, estudantes com deficiência, com transtornos globais do desenvolvimento e com altas habilidades/superdotação, de acordo com o Decreto nº 7.611/2011.',
+        title: 'São considerados alunos com necessidades específicas, segundo o NAPNE do Instituto Federal de Alagoas, estudantes com transtornos globais do desenvolvimento e com altas habilidades/superdotação, de acordo com o Decreto nº 7.611/2011.',
         answers: [
           {description:'Certo', isRight:true},
           {description: 'Errado', isRight:false}
@@ -274,6 +274,12 @@ export class QuestionPage implements OnInit {
           {description: 'A transversalidade da educação especial desde a educação infantil até a educação superior.', isRight:true},
           {description: 'A individualização dos programas escolares, adaptando os currículos e os objetivos educacionais.', isRight:false},
         ]
+      },
+      { //questão 18
+        title: 'Parabéns, você chegou até o final!',
+        answers: [
+          // {description: 'A individualização dos programas escolares, adaptando os currículos e os objetivos educacionais.', isRight:false},
+        ]
       }
       
       
@@ -296,6 +302,20 @@ export class QuestionPage implements OnInit {
     }
     
   }
+  doErr(){
+    // this.curQuestion = this.questions[this.questionIndex + 1];
+    
+
+    if(this.curQuestion = this.questions[this.questionIndex + 1]){
+    } else {
+    this.questions[this.questionIndex];
+    }
+  }
+
+  doTwoErr(){
+    this.curQuestion = this.questions[this.questionIndex + 2];
+  }
+
   showToast() {
     // this.nativeAudio.
     this.respostaCerta = this.toastCtrl.create({
