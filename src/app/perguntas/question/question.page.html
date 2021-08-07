@@ -17,14 +17,20 @@
           <span class="answer-text">{{ answer.description }}</span>
     </div>
   <div class="info">
-    <div (click)="doErr()">
-      <p> <img src="../../../assets/img/pular1.png"></p>
-      <p>PULAR 1</p>
+    <div (click)="doErr()"> 
+      <ion-button color="danger" [disabled]="desabilitado">
+        <img src="../../../assets/img/pular1.png">
+        <p>PULAR 1</p>
+      </ion-button>
     </div>
+
     <div (click)="doTwoErr()">
-      <p> <img src="../../../assets/img/pular2.png"></p>
-      <p>PULAR 2</p>
+      <ion-button color="danger" [disabled]="desabilitado2" >
+        <img src="../../../assets/img/pular1.png">
+        <p>PULAR 2</p>
+      </ion-button>   
     </div>
+
     <div>
       <p> <img src="../../../assets/img/parar.png"></p>
       <p>PARAR</p>

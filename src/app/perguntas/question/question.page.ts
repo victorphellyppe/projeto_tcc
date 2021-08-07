@@ -9,6 +9,9 @@ import { Question, QuestionsAnswers } from 'src/app/models/question';
 export class QuestionPage implements OnInit {
   respostaCerta: any;
   respostaErrada: any;
+  desabilitado = false;
+  desabilitado2 = false;
+
     questions: Question[] = [
       {
         title:'A Lei de Diretrizes e Bases-LDB - Lei nº 9.394/96 – preconiza que os sistemas de ensino devem assegurar aos alunos currículo, métodos, recursos e organização específicos para atender às suas necessidades.',
@@ -302,18 +305,25 @@ export class QuestionPage implements OnInit {
     }
     
   }
+
   doErr(){
     // this.curQuestion = this.questions[this.questionIndex + 1];
     
 
     if(this.curQuestion = this.questions[this.questionIndex + 1]){
+      this.desabilitado = true;
     } else {
     this.questions[this.questionIndex];
     }
   }
 
   doTwoErr(){
-    this.curQuestion = this.questions[this.questionIndex + 2];
+    
+    if(this.curQuestion = this.questions[this.questionIndex + 2]){
+      this.desabilitado2 = true;
+    } else {
+    this.questions[this.questionIndex];
+    }
   }
 
   showToast() {
