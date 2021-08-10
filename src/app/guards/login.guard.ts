@@ -11,7 +11,7 @@ export class LoginGuard implements CanActivate {
     private authService: AuthService,
     private router: Router
   ) { }
-
+    /**Bloqueia o usuario caso não esteja logado. */
   canActivate(): Promise<boolean> {
     return new Promise(resolve => {
       this.authService.getAuth().onAuthStateChanged(user => {

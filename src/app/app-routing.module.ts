@@ -5,17 +5,17 @@ import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {path: '',redirectTo: 'login',pathMatch: 'full'},
-  {path: 'inicio', loadChildren: () => import('./inicio/inicio.module').then(m => m.InicioPageModule)},
+  {path: 'inicio', loadChildren: () => import('./pages/inicio/inicio.module').then(m => m.InicioPageModule)},
   {path: 'login',loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule),  canActivate: [LoginGuard]},
-  {path: 'home',loadChildren: () => import('./home/home.module').then( m => m.HomePageModule), canActivate: [AuthGuard]},
-  {path: 'question',loadChildren: () => import('./perguntas/question/question.module').then( m => m.QuestionPageModule)},
-  {path: 'inicio',loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)},
-  {path: 'rank',loadChildren: () => import('./rank/rank.module').then( m => m.RankPageModule)},
+  {path: 'home',loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule), canActivate: [AuthGuard]},
+  {path: 'question',loadChildren: () => import('./pages/question/question.module').then( m => m.QuestionPageModule)},
+  {path: 'parar',loadChildren: () => import('./pages/parar/parar.module').then( m => m.PararPageModule)},
+  {path: 'rank',loadChildren: () => import('./pages/rank/rank.module').then( m => m.RankPageModule)},
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
   exports: [RouterModule]
 })

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Question } from '../models/question';
-import { AuthService } from '../services/auth.service';
+// import { Question } from '../../models/question';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',

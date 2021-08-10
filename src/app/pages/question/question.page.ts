@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
 import { Question, QuestionsAnswers } from 'src/app/models/question';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-question',
   templateUrl: './question.page.html',
@@ -290,7 +292,7 @@ export class QuestionPage implements OnInit {
     
     curQuestion: Question;
     questionIndex: number = 0;
-    constructor(private toastCtrl: ToastController, private alertCtrl: AlertController,){}
+    constructor(private toastCtrl: ToastController, private alertCtrl: AlertController, private router: Router){}
   ngOnInit():void{
     this.curQuestion = this.questions[this.questionIndex]
   }
@@ -306,10 +308,10 @@ export class QuestionPage implements OnInit {
     
   }
 
-  doErr(){
-    // this.curQuestion = this.questions[this.questionIndex + 1];
-    
+  
 
+  doPulo(){
+    // this.curQuestion = this.questions[this.questionIndex + 1];
     if(this.curQuestion = this.questions[this.questionIndex + 1]){
       this.desabilitado = true;
     } else {
@@ -317,8 +319,7 @@ export class QuestionPage implements OnInit {
     }
   }
 
-  doTwoErr(){
-    
+  doTwoPulo(){
     if(this.curQuestion = this.questions[this.questionIndex + 2]){
       this.desabilitado2 = true;
     } else {
@@ -343,6 +344,32 @@ export class QuestionPage implements OnInit {
       console.log(toastData);
       toastData.present();
     });
+  }
+
+  async pararAlertConfirm() {
+    const alert = await this.alertCtrl.create({
+      cssClass: 'my-custom-class',
+      header: 'Tem certeza disso ?',
+      message: 'Não desista, você consegue!',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Parar',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.router.navigate(['/home']);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }
 
