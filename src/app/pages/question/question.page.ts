@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
 import { Question, QuestionsAnswers } from 'src/app/models/question';
 import { Router } from '@angular/router';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 @Component({
   selector: 'app-question',
@@ -11,9 +12,10 @@ import { Router } from '@angular/router';
 export class QuestionPage implements OnInit {
   respostaCerta: any;
   respostaErrada: any;
+  
   desabilitado = false;
   desabilitado2 = false;
-
+    /** ======= QUESTÕES ======= */
     questions: Question[] = [
       {
         title:'A Lei de Diretrizes e Bases-LDB - Lei nº 9.394/96 – preconiza que os sistemas de ensino devem assegurar aos alunos currículo, métodos, recursos e organização específicos para atender às suas necessidades.',
@@ -292,17 +294,26 @@ export class QuestionPage implements OnInit {
     
     curQuestion: Question;
     questionIndex: number = 0;
-    constructor(private toastCtrl: ToastController, private alertCtrl: AlertController, private router: Router){}
+    constructor(private toastCtrl: ToastController, private alertCtrl: AlertController, private router: Router, private nativeAudio: NativeAudio){}
   ngOnInit():void{
-    this.curQuestion = this.questions[this.questionIndex]
+    //audios
+    this.nativeAudio.preloadSimple('vaicomecar','/assets/audios/vai-comecar.wav');
+    this.nativeAudio.preloadSimple('errou', '/assets/audios/que-pena.wav');
+    this.nativeAudio.preloadSimple('acertou','/assets/certa-resposta.wav');
+    this.nativeAudio.preloadSimple('possoPerguntar','/assets/posso-perguntar');
+    this.nativeAudio.preloadSimple('suspense','/assets/suspense.wav');
+    this.nativeAudio.loop('suspense');
+    this.curQuestion = this.questions[this.questionIndex];
   }
   doAnswer(answer:QuestionsAnswers){
+    this.nativeAudio.play('possoPerguntar');
     if(answer.isRight){
-      //alert("Acertou!!");
+    this.nativeAudio.play('acertou');
       this.showToast();
       this.questionIndex++;
       this.curQuestion = this.questions[this.questionIndex];
     } else { 
+      this.nativeAudio.play('suspense');
       this.errouToast();
     }
     
@@ -326,6 +337,8 @@ export class QuestionPage implements OnInit {
     this.questions[this.questionIndex];
     }
   }
+
+  /**  ====== ALERTAS ========  */
 
   showToast() {
     this.respostaCerta = this.toastCtrl.create({

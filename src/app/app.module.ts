@@ -4,6 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +27,7 @@ import { environment } from 'src/environments/environment';
     AngularFirestoreModule,
     AngularFireDatabaseModule ],
   providers: [
+    NativeAudio,
     Keyboard,
     SplashScreen,
     StatusBar,
