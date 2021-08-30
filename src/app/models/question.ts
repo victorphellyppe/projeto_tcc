@@ -1,10 +1,10 @@
-export interface Question{
-    title:string;
-    level?:number;
-    answers: QuestionsAnswers[];
+export interface Question {
+    title: string;
+    level?: number;
+    answers: QuestionAnswer[];
 }
 
-export interface QuestionsAnswers{
-    description:string;
+export interface QuestionAnswer {
+    description: string;
     isRight: boolean;
 }

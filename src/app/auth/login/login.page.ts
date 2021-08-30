@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
   async login() {
     await this.presentLoading();
 
-    
+
     try {
       await this.authService.login(this.userLogin);
     } catch (error) {
@@ -56,6 +56,10 @@ export class LoginPage implements OnInit {
 
         case 'auth/weak-password':
           message = "Sua senha deve ter pelo menos 6 caracteres ";
+          break;
+        
+        case 'auth/wrong-password':
+          message = "Senha invalída ou usuário não existe.";
           break;
       }
 
@@ -103,7 +107,7 @@ export class LoginPage implements OnInit {
     toast.present();
   }
 
-  signOut(){
+  signOut() {
     return this.authService.logout();
   }
 

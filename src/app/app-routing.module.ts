@@ -10,7 +10,6 @@ const routes: Routes = [
   {path: 'home',loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule), canActivate: [AuthGuard]},
   {path: 'question',loadChildren: () => import('./pages/question/question.module').then( m => m.QuestionPageModule)},
   {path: 'parar',loadChildren: () => import('./pages/parar/parar.module').then( m => m.PararPageModule)},
-  {path: 'rank',loadChildren: () => import('./pages/rank/rank.module').then( m => m.RankPageModule)},
 ];
 
 @NgModule({

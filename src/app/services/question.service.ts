@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Question } from '../models/question';
 //import { NativeAudio } from '@ionic-native/native-audio/ngx';
-import { prizeInfo } from '../models/prizeInfo';
+import { PrizeInfo } from '../models/prize-info';
 import { ToastController } from '@ionic/angular';
 
 
@@ -13,7 +13,7 @@ export class QuestionService {
 
   private questionCount: number = 0;
 
- private questions: Question[] = [
+ public questions: Question[] = [
     {
       title:'A Lei de Diretrizes e Bases-LDB - Lei nº 9.394/96 – preconiza que os sistemas de ensino devem assegurar aos alunos currículo, métodos, recursos e organização específicos para atender às suas necessidades.',
       answers: [
@@ -64,7 +64,7 @@ export class QuestionService {
     },
     {
       title:'São consideradas pessoas com necessidades específicas estudantes com deficiência, com transtornos globais do desenvolvimento e com altas habilidades/superdotação, de acordo com o Decreto no. 7.611/2011\n \
-      Além da cultura da “educação para a convivência”, o NAPNE tem como objetivos:\n \
+      Além da cultura da “educação para a convivência”, o NAPNE tem como objetivos: \
       a.	Sensibilizar a comunidade escolar quanto à inclusão e os direitos de todos à educação;\
       b.	Atendimento e acompanhamento dos alunos com necessidades específicas; \
       c.	Atividades voltadas à formação de professores e técnicos;',
@@ -270,6 +270,10 @@ export class QuestionService {
 
    }
 
+
+  //  stopQuestion() {
+  //    switch(this.questions.forEach(this.questions.answers == false)
+  //  }
    proximaQuestao(): Question {
     const randomIndex: number = Math.floor(Math.random() * this.questions.length);
     this.questionCount++;
@@ -277,7 +281,7 @@ export class QuestionService {
     return this.questions.splice(randomIndex, 1)[0];
   }
 
-  getPrizeInfo(): prizeInfo {
+  getPrizeInfo(): PrizeInfo {
     const curQuestionPrize  = this.questionPremios[this.questionCount -1];
     const acumulado = this.getPrizeInfo[this.questionCount -2];
     return {

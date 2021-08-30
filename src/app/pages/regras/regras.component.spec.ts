@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { RankPage } from './rank.page';
+import { RegrasComponent } from './regras.component';
 
-describe('RankPage', () => {
-  let component: RankPage;
-  let fixture: ComponentFixture<RankPage>;
+describe('RegrasComponent', () => {
+  let component: RegrasComponent;
+  let fixture: ComponentFixture<RegrasComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ RankPage ],
+      declarations: [ RegrasComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RankPage);
+    fixture = TestBed.createComponent(RegrasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
