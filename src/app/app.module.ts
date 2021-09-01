@@ -15,9 +15,8 @@ import { AngularFireDatabaseModule} from '@angular/fire/database';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { environment } from 'src/environments/environment';
-import { RegrasComponent } from './pages/regras/regras.component';
 @NgModule({
-  declarations: [AppComponent,RegrasComponent],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
