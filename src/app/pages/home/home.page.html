@@ -7,19 +7,19 @@
 
     <!-- Botões -->
       <div class="buttons">
-        <ion-button color="primary" [routerLink]="['#']" expand="block">
+        <ion-button color="primary" [routerLink]="['/orientacoes']" expand="block" shape="round">
           Orientações gerais
         </ion-button>
 
-        <ion-button color="success" [routerLink]="['/question']" expand="block">
+        <ion-button color="success" [routerLink]="['/question']" expand="block"shape="round">
           Iniciar Jogo
         </ion-button>
 
-        <ion-button color="success"expand="block" [routerLink]="['/regras']">
+        <ion-button color="success"expand="block" [routerLink]="['/regras']"shape="round">
           Regras do jogo
         </ion-button>
 
-        <ion-button color="danger"expand="block" (click)="signOut()">
+        <ion-button color="danger"expand="block" (click)="signOut()" shape="round">
           Sair    
         </ion-button>      
       </div>

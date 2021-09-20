@@ -12,7 +12,7 @@ import { QuestionService } from 'src/app/services/question.service';
 })
 export class QuestionPage implements OnInit {
   respostaCerta: any;
-  respostaErrada: any;
+  respostaErrada;
   
   desabilitado = false;
   desabilitado2 = false;
@@ -314,10 +314,8 @@ doAnswer(answer:QuestionAnswer){
       this.questionIndex++;
       this.curQuestion = this.questionService.questions[this.questionIndex];
     } else { 
-      this.nativeAudio.play('errou');
-      this.router.navigateByUrl['/home'];
-      // this.errouToast();
-    }
+      this.erroAlert();
+      }
     
   }
 
@@ -351,16 +349,47 @@ doAnswer(answer:QuestionAnswer){
       toastData.present();
     });
   }
-  errouToast(){
-    this.respostaErrada = this.toastCtrl.create({
-      message: 'Que pena, você errou.',
-      duration: 1500
-    }).then((toastData) => {
-      console.log(toastData);
-      toastData.present();
+  errouMsg(){
+    this.alertCtrl.create({
+      message: 'Você errou, tente novamente para se tornar um campeão da inclusão!',
+      buttons: ['OK']
     });
+    setTimeout(function(){
+      this.nativeAudio.play('errou');
+      this.router.navigateByUrl['/home'];
+    }, 3000);
   }
 
+
+  async erroAlert() {
+    const alert = await this.alertCtrl.create({
+      cssClass: 'my-custom-class',
+      message: 'Você errou, tente novamente para se tornar um campeão da inclusão!',
+      buttons: [
+        // {
+        //   text: 'Cancelar',
+        //   role: 'cancel',
+        //   cssClass: 'secondary',
+        //   handler: (blah) => {
+        //     console.log('Confirm Cancel: blah');
+        //   }
+        // }, 
+        {
+          text: 'Ok',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.router.navigate(['/home']);
+          }
+        }
+      ]
+    });
+    await alert.present();
+    
+
+
+    // const { role } = await alert.onDidDismiss();
+    // console.log('onDidDismiss resolved with role', role);
+  }
   async pararAlertConfirm() {
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
@@ -374,8 +403,9 @@ doAnswer(answer:QuestionAnswer){
           handler: (blah) => {
             console.log('Confirm Cancel: blah');
           }
-        }, {
-          text: 'Parar',
+        }, 
+        {
+          text: 'Ok',
           handler: () => {
             console.log('Confirm Okay');
             this.router.navigate(['/parar']);

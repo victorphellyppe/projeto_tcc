@@ -89,6 +89,9 @@ export class LoginPage implements OnInit {
         case 'auth/weak-password':
           message = "Sua senha deve ter pelo menos 6 caracteres ";
           break;
+        case 'auth/email-already-in-use':
+          message = " O email ja está sendo usado, em outra conta.";
+          break;
       }
 
       this.presentToast(error.message);
