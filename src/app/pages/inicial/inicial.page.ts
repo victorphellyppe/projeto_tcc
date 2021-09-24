@@ -19,7 +19,7 @@ export class InicialPage implements OnInit {
             this.router.navigateByUrl('/home');
           else
             this.router.navigateByUrl('/inicial'); 
-      }, 10000)
+      }, 3000)
     } catch (e) {
       this.router.navigateByUrl('/login');
     }

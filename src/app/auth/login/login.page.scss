@@ -16,6 +16,7 @@
         span {
             color: #fff;
         }
+        
     }
 }
 
@@ -35,10 +36,15 @@ ion-slides {
             ion-input {
                 --color: #fff;
             }
+            
         }
     }
 }
+#anonimo{
+    width: 180px;
+    height: 15px;
 
+}
 .ocean {
     position: absolute;
     left: 0;

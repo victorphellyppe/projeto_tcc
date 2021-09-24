@@ -35,7 +35,6 @@ export class LoginPage implements OnInit {
       this.wavesPosition -= this.wavesDifference;
     }
   }
-
   async login() {
     await this.presentLoading();
 
@@ -68,7 +67,9 @@ export class LoginPage implements OnInit {
       this.loading.dismiss();
     }
   }
-
+  async loginAnonimo(){
+    return await this.authService.loginAnonimo();
+  }
   async register() {
     await this.presentLoading();
 
@@ -109,7 +110,7 @@ export class LoginPage implements OnInit {
     const toast = await this.toastCtrl.create({ message, duration: 2000 });
     toast.present();
   }
-
+  
   signOut() {
     return this.authService.logout();
   }

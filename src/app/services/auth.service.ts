@@ -14,6 +14,11 @@ export class AuthService {
     return this.afa.signInWithEmailAndPassword(user.email,user.password);
   }
 
+  loginAnonimo(){
+    return this.afa.signInAnonymously().then(() => {
+      console.log("Login Anonimo!");
+    });
+  }
   register(user:User){
     return this.afa.createUserWithEmailAndPassword(user.email,user.password);
   }
@@ -26,4 +31,6 @@ export class AuthService {
   getAuth(){
     return this.afa;
   }
+
+
 }
