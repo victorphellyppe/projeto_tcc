@@ -9,6 +9,7 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+<<<<<<< HEAD
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -34,6 +35,19 @@ import { environment } from 'src/environments/environment';
     SplashScreen,
     StatusBar,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+=======
+import { HttpClientModule } from '@angular/common/http';
+
+@NgModule({
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [BrowserModule,
+            IonicModule.forRoot(),
+            AppRoutingModule,
+            HttpClientModule  
+          ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+>>>>>>> main
   bootstrap: [AppComponent],
 })
 export class AppModule {}
