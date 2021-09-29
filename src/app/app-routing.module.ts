@@ -13,6 +13,8 @@ const routes: Routes = [
   {path: 'parar',loadChildren: () => import('./pages/parar/parar.module').then( m => m.PararPageModule)},
   {path: 'regras',loadChildren: () => import('./pages/regras/regras.module').then( m => m.RegrasPageModule)},
   {path: 'orientacoes',loadChildren: () => import('./pages/orientacoes-gerais/orientacoes-gerais.module').then( m => m.OrientacoesGeraisPageModule)},
+  {path: 'chat',loadChildren: () => import('./pages/chat/chat.module').then( m => m.ChatPageModule)},
+
 
 ];
 
