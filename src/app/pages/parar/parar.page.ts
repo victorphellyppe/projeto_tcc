@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Question, QuestionAnswer } from 'src/app/models/question';
 
 @Component({
   selector: 'app-parar',
@@ -8,7 +7,7 @@ import { Question, QuestionAnswer } from 'src/app/models/question';
 })
 export class PararPage implements OnInit {
 
-  constructor(private questions: Question, private questionCount: QuestionAnswer) { }
+  constructor() { }
 
   ngOnInit() {
     
