@@ -18,8 +18,8 @@ export class InicialPage implements OnInit {
           if (this.auth.getAuth() != null)
             this.router.navigateByUrl('/home');
           else
-            this.router.navigateByUrl('/inicial'); 
-      }, 3000)
+            this.router.navigateByUrl('/inicial');
+      }, 4000)
     } catch (e) {
       this.router.navigateByUrl('/login');
     }

@@ -11,7 +11,7 @@ export class OrientacoesGeraisPage implements OnInit {
   constructor(private fileOpener: FileOpener) { }
 
   ngOnInit() {
-    this.fileOpener.open('/assets/pdf/materialApp.docx', 'application/docx')
+    this.fileOpener.open('/assets/pdf/materialApp.pdf', 'application/pdf')
     .then(() => { console.log('Abriu o arquivo')})
     .catch(err => { console.log(err)});
   }

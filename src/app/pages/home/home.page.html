@@ -7,6 +7,10 @@
 
     <!-- Botões -->
       <div class="buttons">
+        <ion-button color="primary" [routerLink]="['/inicial']" expand="block" shape="round">
+          Sobre o jogo
+        </ion-button>
+
         <ion-button color="primary" [routerLink]="['/orientacoes']" expand="block" shape="round">
           Orientações gerais
         </ion-button>
@@ -20,8 +24,8 @@
         </ion-button>
 
         <ion-button color="danger"expand="block" (click)="signOut()" shape="round">
-          Sair    
-        </ion-button>      
+          Sair
+        </ion-button>
       </div>
 
 </div>

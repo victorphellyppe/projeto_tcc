@@ -11,7 +11,7 @@ import { ToastController } from '@ionic/angular';
 export class QuestionService {
   [x: string]: any;
 
-  private questionCount: number = 0;
+  public questionCount: number = 0;
 
  public questions: Question[] = [
     {
@@ -82,7 +82,7 @@ export class QuestionService {
       answers: [
         {description:'Certo', isRight:false},
         {description:'Errado', isRight:true},
-        
+
       ],
       level:1
     },
@@ -178,7 +178,7 @@ export class QuestionService {
     {
       title:'O conceito de educação inclusiva surgiu a partir de 1994, com a Declaração de Salamanca. A ideia da educação inclusiva é que as crianças com necessidades educacionais específicas sejam incluídas em:',
       answers: [
-        
+
         {description:'apenas institutos de atendimentos especiais.', isRight:false},
         {description:'somente escolas específicas para crianças com deficiências.', isRight:false},
         {description:'quaisquer escolas de ensino regular.', isRight:true},
@@ -189,7 +189,7 @@ export class QuestionService {
     {
       title:'De acordo com a Política Nacional de Educação Especial, na perspectiva da Educação Inclusiva, não podemos afirmar que:',
       answers: [
-        
+
         {description:'na perspectiva da educação inclusiva, a educação especial passa a integrar a proposta pedagógica da escola regular, promovendo o atendimento às necessidades educacionais específicas dos alunos, transtornos globais de desenvolvimento e altas habilidades/superdotação.', isRight:false},
         {description:'constitui um paradigma educacional fundamentado na concepção de direitos humanos, que conjuga igualdade e diferença como valores indissociáveis, e que avança em relação à ideia de equidade formal ao contextualizar as circunstâncias históricas da produção da exclusão dentro e fora da escola.', isRight:false},
         {description:'o atendimento educacional especializado tem como função identificar, elaborar e organizar recursos pedagógicos e de acessibilidade que eliminem as barreiras para a plena participação dos alunos, considerando suas necessidades específicas.', isRight:false},
@@ -200,7 +200,7 @@ export class QuestionService {
     {
       title:'A Política Nacional de Educação Especial, na perspectiva da Educação Inclusiva, propõe, exceto:',
       answers: [
-        
+
         {description:'Que no contexto escolar, todos aprendem a viver coletivamente, a repartir tarefas e dividir responsabilidades, pois a valorização da diversidade de talentos humanos é um exercício que desenvolve as ações dos alunos e que resulta do trabalho em grupos heterogêneos.', isRight:false},
         {description:'Que a escola contemple todos os alunos, mesmo aqueles com severas limitações, que não conseguem aprender os conteúdos escolares, mas que se beneficiem da convivência com os outros alunos. Por conseguinte, os alunos, nestas condições, podem receber, como complemento, o Atendimento Educacional Especializado.', isRight:false},
         {description:'A mudança de valores, atitudes e práticas educacionais para atender a todos os estudantes, sem nenhum tipo de discriminação, assegurando-lhes uma educação de qualidade.', isRight:false},
@@ -240,7 +240,7 @@ export class QuestionService {
     },
 
   ];
-  
+
   private questionPremios = [
     1000, //1
     2000,
@@ -254,7 +254,7 @@ export class QuestionService {
     3000,
   ];
 
-  
+
   constructor(private toastCtrl: ToastController) {
     this.questions.sort((a,b) => 0.5 - Math.random());
    }
@@ -262,7 +262,7 @@ export class QuestionService {
    ngOnInit(){
      this.nativeAudio.preloadSimple('certo.wav', 'assets/certo.wav').then(err => { console.log(err)});
      this.nativeAudio.preloadSimple('errou.wav', 'assets/errou.wav');
-     
+
 
      this.nativeAudio.preloadComplex('suspense.wav', 'assets/suspense.wav', .2 , 1, 0).then(() => {
       this.nativeAudio.loop('backAudio');

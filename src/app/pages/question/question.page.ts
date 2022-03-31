@@ -13,10 +13,10 @@ import { QuestionService } from 'src/app/services/question.service';
 export class QuestionPage implements OnInit {
   respostaCerta: any;
   respostaErrada;
-  
+
   desabilitado = false;
   desabilitado2 = false;
-    // ======= QUESTÕES ======= 
+    // ======= QUESTÕES =======
     // questions: Question[] = [
     //   {
     //     title:'A Lei de Diretrizes e Bases-LDB - Lei nº 9.394/96 – preconiza que os sistemas de ensino devem assegurar aos alunos currículo, métodos, recursos e organização específicos para atender às suas necessidades.',
@@ -183,7 +183,7 @@ export class QuestionPage implements OnInit {
     //       {description: 'A mudança de valores, atitudes e práticas educacionais para atender a todos os estudantes, sem nenhum tipo de discriminação, assegurando-lhes uma educação de qualidade.', isRight:false},
     //       {description: 'Que a intencionalidade da educação seja voltada diretamente para a preparação dos indivíduos para o desempenho de funções específicas: mão de obra qualificada para o mercado de trabalho, ou seja, funções atreladas ao desenvolvimento econômico do país.', isRight:true}
     //     ]
-    //   }, 
+    //   },
     //   {
     //     title: 'São objetivos da Política Nacional de Educação Especial, na perspectiva da Educação Inclusiva, exceto:',
     //     answers: [
@@ -228,7 +228,7 @@ export class QuestionPage implements OnInit {
     //       {description: 'a independência em relação ao projeto político pedagógico da escola.', isRight:false},
     //       {description: 'a identificação, elaboração e organização de recursos pedagógicos e de acessibilidade.', isRight:true}
     //     ]
-    //   },   
+    //   },
     //   {
     //     title: 'A Política Nacional de Educação Especial, na perspectiva da Educação Inclusiva, foi elaborada tendo como um de seus preceitos que:',
     //     answers: [
@@ -289,13 +289,13 @@ export class QuestionPage implements OnInit {
     //       // {description: 'A individualização dos programas escolares, adaptando os currículos e os objetivos educacionais.', isRight:false},
     //     ]
     //   }
-      
-      
+
+
     // ];
-    
+
     curQuestion: Question;
     questionIndex: number = 0;
-    constructor(private toastCtrl: ToastController, private alertCtrl: AlertController, private router: Router,private questionService: QuestionService, private nativeAudio: NativeAudio){}
+    constructor(private toastCtrl: ToastController, private alertCtrl: AlertController, private router: Router,public questionService: QuestionService, private nativeAudio: NativeAudio){}
   ngOnInit():void{
     //audios
     this.nativeAudio.preloadSimple('vaicomecar','/assets/audios/vai-comecar.wav');
@@ -313,14 +313,14 @@ doAnswer(answer:QuestionAnswer){
       // this.showToast();
       this.questionIndex++;
       this.curQuestion = this.questionService.questions[this.questionIndex];
-    } else { 
+    } else {
       this.erroAlert();
       }
-    
-    
+
+
   }
 
-  
+
 
   doPulo(){
     // this.curQuestion = this.questions[this.questionIndex + 1];
@@ -374,7 +374,7 @@ doAnswer(answer:QuestionAnswer){
         //   handler: (blah) => {
         //     console.log('Confirm Cancel: blah');
         //   }
-        // }, 
+        // },
         {
           text: 'Ok',
           handler: () => {
@@ -385,7 +385,7 @@ doAnswer(answer:QuestionAnswer){
       ]
     });
     await alert.present();
-    
+
 
 
     // const { role } = await alert.onDidDismiss();
@@ -404,7 +404,7 @@ doAnswer(answer:QuestionAnswer){
           handler: (blah) => {
             console.log('Confirm Cancel: blah');
           }
-        }, 
+        },
         {
           text: 'Ok',
           handler: () => {

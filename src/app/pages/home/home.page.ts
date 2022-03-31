@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
 // import { Question } from '../../models/question';
 import { AuthService } from '../../services/auth.service';
 
-/* 
-Autor Victor Oliveira 
+/*
+Autor Victor Oliveira
 */
 @Component({
   selector: 'app-home',
@@ -12,8 +13,8 @@ Autor Victor Oliveira
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  
-  constructor(private router:Router, private authService: AuthService) {   }
+
+  constructor(private router:Router, private authService: AuthService, private plt: Platform) {   }
 
   navegarQuestao(){
     this.router.navigate(['/question']);
@@ -21,5 +22,8 @@ export class HomePage {
 
   signOut(){
     this.authService.logout();
+    this.plt.backButton.subscribe(async () => {
+      navigator['app'].exitApp();
+    })
   }
 }
